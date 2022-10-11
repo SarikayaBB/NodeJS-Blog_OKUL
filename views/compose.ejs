@@ -1,0 +1,31 @@
+<%- include("partials/header")%>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="container">
+        <form method="post" action="/compose">
+          <div class="mb-3 row">
+            <label for="txtBaslik" class="col-4 col-form-label">Baslik</label>
+            <div class="col-8">
+              <input type="text" class="form-control" name="txtBaslik" id="txtBaslik" placeholder="Baslik" />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="txtIcerik" class="col-4 col-form-label">Icerik</label>
+            <div class="col-8">
+              <textarea type="text" class="form-control" name="txtIcerik" id="txtIcerik" placeholder="Name"></textarea>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <div class="offset-sm-4 col-sm-8">
+              <button type="submit" class="btn btn-primary">E K L E</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include("partials/footer")%>
