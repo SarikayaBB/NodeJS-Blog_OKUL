@@ -1,6 +1,22 @@
 <%- include("partials/header")%>
 <main>
-<h1><%= model.h1tag%></h1>
-    <p><%=model.ptag%></p>
-  </main>
+  <h1><%= model.h1tag%></h1>
+  <p><%=model.ptag%></p>
+
+  <% for(var i of model.blogPosts){%>
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%=i.baslik%></h3>
+          <p class="card-text"><%= i.icerik %></p>
+          <a name="silButton" class="btn btn-danger" href="/islem/sil/<%=i.id%>" role="button">SIL</a> <!-- HREF verecegin zaman anchor olarak tanimla, buttonlarin hrefi -->
+          <!-- href="/?islem=sil&id=<%=i.id %>" -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%} %>
+</main>
 <%- include("partials/footer")%>
