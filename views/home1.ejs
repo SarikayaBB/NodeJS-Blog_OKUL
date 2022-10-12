@@ -8,8 +8,16 @@
     <div class="col-4">
       <div class="card">
         <div class="card-body">
+          
           <h3 class="card-title"><%=i.baslik%></h3>
-          <p class="card-text"><%= i.icerik %></p>
+          <%if (i.icerik.length<=160){%>
+            <p class="card-text"><%= i.icerik %></p>
+          <%}else { %>
+          
+            <p class="card-text"><%= i.icerik.slice(0,160) %> ..</p>
+            <a name="devamButton" class="btn btn-success" href="/islem/devamini-oku/<%=i.id%>" role="button">Devamini Oku</a>
+         <% }%>
+
           <a name="silButton" class="btn btn-danger" href="/islem/sil/<%=i.id%>" role="button">SIL</a> <!-- HREF verecegin zaman anchor olarak tanimla, buttonlarin hrefi -->
           <!-- href="/?islem=sil&id=<%=i.id %>" -->
         </div>
