@@ -54,9 +54,16 @@ app.get("/:islem/:sil/:id", function (req, res) {
     res.redirect("/");
   } else if (req.params.sil == "devamini-oku") {
     console.log(req.params);
-    res.render("post",{model:{
-      x:blogPosts[req.params.id].icerik
-    }});
+    for (var y of blogPosts) {
+      if (req.params.id == y.id) {
+        res.render("post", {
+          model: {
+            x1: y.icerik,
+            y1: y.baslik,
+          },
+        });
+      }
+    }
   }
 });
 /** post function */
@@ -93,8 +100,8 @@ app.post("/compose", function (req, res) {
   res.redirect("/compose");
 });
 
-app.post("/", function (req, res) {
- 
-});
+app.post("/", function (req, res) {});
 /** listen function, server gazlama */
 app.listen(3000, () => console.log("Server is listening on port 3000."));
+
+/** reference type and primitive type variables */

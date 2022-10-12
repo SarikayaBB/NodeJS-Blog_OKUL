@@ -14,8 +14,8 @@
             <p class="card-text"><%= i.icerik %></p>
           <%}else { %>
           
-            <p class="card-text"><%= i.icerik.slice(0,160) %> ..</p>
-            <a name="devamButton" class="btn btn-success" href="/islem/devamini-oku/<%=i.id%>" role="button">Devamini Oku</a>
+            <p class="card-text"><%= i.icerik.slice(0,160) %> ..  <a href="/islem/devamini-oku/<%=i.id%>" role="button">Devamini Oku</a></p>
+           
          <% }%>
 
           <a name="silButton" class="btn btn-danger" href="/islem/sil/<%=i.id%>" role="button">SIL</a> <!-- HREF verecegin zaman anchor olarak tanimla, buttonlarin hrefi -->
