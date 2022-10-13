@@ -44,27 +44,28 @@ app.get("/", function (req, res) {
   // }
 });
 
-app.get("/:islem/:sil/:id", function (req, res) {
-  if (req.params.sil == "sil") {
+app.get("/:islem/:id", function (req, res) {
+  if (req.params.islem == "sil") {
+    console.log(req.params);
     for (var x of blogPosts) {
       if (x.id == req.params.id) {
         blogPosts.splice(blogPosts.indexOf(x), 1);
       }
     }
     res.redirect("/");
-  } else if (req.params.sil == "devamini-oku") {
+  } else if (req.params.islem == "devamini-oku") {
     console.log(req.params);
     for (var y of blogPosts) {
       if (req.params.id == y.id) {
         res.render("post", {
           model: {
-            x1: y.icerik,
-            y1: y.baslik,
+            "baslik": y.baslik,
+            "icerik": y.icerik,
           },
         });
       }
     }
-  }
+   } //else if(req.params.islem == ""){}
 });
 /** post function */
 app.get("/hakkimizda", function (req, res) {
@@ -89,9 +90,9 @@ app.get("/compose", function (req, res) {
     model: {},
   });
 });
-
+ 
 app.post("/compose", function (req, res) {
-  if (req.body.txtBaslik.length > 1 && req.body.txtIcerik.length > 1) {
+  if (req.body.txtBaslik.length < 20 && req.body.txtIcerik.length > 1) {
     blogPosts.push({baslik: req.body.txtBaslik, icerik: req.body.txtIcerik, id: id});
     /** id ekledikten sonra arttirmak da her birine farkli bir id tanimlar. */
     id++;
